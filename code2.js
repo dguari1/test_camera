@@ -14,6 +14,7 @@ var fps = null
 var FPS_accum = []
 var valid_accum = []
 var is_valid = 0
+var k = 0
 
 var constraints = { video: { frameRate: { ideal: 30, max: 60 },
                               facingMode: 'user' } };
@@ -50,11 +51,12 @@ function updateTimer () {
 const detectFaces = async () => {
 
     // Use model to estimate faces
+    if (k == 3) {
     const returnTensors = false;
     const flipHorizontal = false;
     const annotateBoxes = true;
     const predictions =  await model.estimateFaces(video, returnTensors, flipHorizontal, annotateBoxes);
-
+    }
     
  
     canvas.width = video.videoWidth;
@@ -69,6 +71,8 @@ const detectFaces = async () => {
     
     let area_box = (bottomRight_box[0] - topLef_box[0]) * (bottomRight_box[1] - topLef_box[1]);
     
+    if (k==3){
+
     if (predictions.length == 1) {
         start = predictions[0].topLeft;
         end = predictions[0].bottomRight;
@@ -106,7 +110,7 @@ const detectFaces = async () => {
         
         
     }
-
+    }   
     
 
     // if (predictions.length > 0 ) {
@@ -161,6 +165,12 @@ const detectFaces = async () => {
         FPS_accum.push(fps)
         valid_accum.push(is_valid)
         }
+    
+    k+=1 
+    if (k>3)
+    {
+        k=0
+    }
 
     window.requestAnimationFrame(detectFaces);
 
