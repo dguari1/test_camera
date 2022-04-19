@@ -1,49 +1,41 @@
+
 <!DOCTYPE html>
-<html lang="en" >
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>CodePen - MediaPipe - Face Detection</title>
-    <meta charset="utf-8">
-  <!-- <link rel="icon" href="favicon.ico"> -->
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils@0.6/control_utils.css" crossorigin="anonymous">
-  <!-- <link rel="stylesheet" type="text/css" href="demo.css" crossorigin="anonymous"> -->
+  <!-- <meta charset="utf-8">
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.3/camera_utils.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils@0.6/control_utils.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.3/drawing_utils.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_detection@0.4/face_detection.js" crossorigin="anonymous"></script><link rel="stylesheet" href="./style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_detection@0.4/face_detection.js" crossorigin="anonymous"></script> -->
 
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-<!-- partial:index.partial.html -->
-<div class="container">
-    <video class="input_video" width="640px" height="360px"></video>
-    <div class="canvas-container">
-    <canvas class="output_canvas" width="640px" height="360px"></canvas>
-    </div>
-    <div class="loading">
-      <div class="spinner"></div>
-      <div class="message">
-        Loading
-      </div>
-    </div>
-    <a class="abs logo" href="http://www.mediapipe.dev" target="_blank">
-      <div style="display: flex;align-items: center;bottom: 0;right: 10px;">
-        <!-- <img class="logo" src="logo_white.png" alt="" style="height: 50px;"> -->
-        <span class="title">MediaPipe</span>
-      </div>
-    </a>
-    <!-- <div class="shoutout">
-      <div>
-        <a href="https://solutions.mediapipe.dev/face_detection">
-          Click here for more info
-        </a>
-      </div>
-    </div> -->
-  </div>
-  <div class="control-panel">
-  </div>
-<!-- partial -->
-  <script type="module" src="./script.js"></script>
 
+<body>
+
+    <div class="container">
+        <figure>
+            <!-- <video controls id="video" src="https://assets.codepen.io/9632/SampleVideo_1280x720_1mb.mp4"></video> -->
+            <video autoplay="true" id="video"></video>
+            <canvas id="canvas"></canvas>
+            <figcaption>
+              <label id="timer" for="progress" role="timer"></label>
+              <button id="play" aria-label="Play" role="button">►</button>
+              <progress id="progress" max="100" value="0">Progress</progress>
+              </figcaption>
+          </figure>
+    </div> 
 </body>
+
+<!-- <script src="https://unpkg.com/@tensorflow/tfjs-core@2.4.0/dist/tf-core.js"></script> -->
+<!-- <script src="https://unpkg.com/@tensorflow/tfjs-converter@2.4.0/dist/tf-converter.js"></script> -->
+<!-- <script src="https://unpkg.com/@tensorflow/tfjs-backend-webgl@2.4.0/dist/tf-backend-webgl.js"></script> -->
+<!-- <script src="https://unpkg.com/@tensorflow-models/face-landmarks-detection@0.0.1/dist/face-landmarks-detection.js"></script> -->
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script> -->
+
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"> </script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/blazeface"></script>
+<script type = "module" src="code2.js"></script>
+
 </html>
