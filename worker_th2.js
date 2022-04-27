@@ -4,6 +4,7 @@ importScripts("https://cdn.jsdelivr.net/npm/@tensorflow-models/blazeface")
 var model 
 let canvas
 let ctx
+var is_valid = 0
 
 // load model
 const setup = async () => {
@@ -80,6 +81,8 @@ async function predict(img, width, height) {
         ctx.lineWidth = 6
         ctx.rect(topLef_box[0], topLef_box[1], size_box[0],size_box[1]);
         ctx.stroke(); 
+
+        postMessage({ "is_valid" : is_valid})
         
         
     }

@@ -32,6 +32,9 @@ const max_duration_counter = 5
 var mytime = 0 
 let interval_seconds = null
 
+// function to compute the average
+const average = (array) => array.reduce((a, b) => a + b) / array.length;
+
 function setupCamera (){
     navigator.mediaDevices.getUserMedia(constraints)
     .then(function (stream){
@@ -55,7 +58,12 @@ const setupModel = async function() {
                 if (event.data.modelIsReady) {
                     workerModelIsReady = true
                 }
-            } 
+            }
+            
+            if (event.data.is_valid) {
+                is_valid = event.data.is_valid
+            }
+            
             }
         }
     }
@@ -72,7 +80,10 @@ function updateTimer () {
         button.disabled = false
         progress.value = Math.round((mytime/max_duration_counter)*100);
         timer.innerHTML = mytime + " seconds" ;
-        console.log(FPS_accum, valid_accum )
+        alert("FPS = " + (1/average(FPS_accum))*1000 )
+        // alert("FPS = " + (1/average(FPS_accum))*1000 + " | In Frame =" + average(valid_accum)*100);
+
+
     }
 }
 
