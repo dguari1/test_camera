@@ -4,7 +4,7 @@ importScripts("https://cdn.jsdelivr.net/npm/@tensorflow-models/blazeface")
 var model 
 let canvas
 let ctx
-var is_valid = 0
+var is_valid = false
 
 // load model
 const setup = async () => {
@@ -62,30 +62,29 @@ async function predict(img, width, height) {
                 
                 
                 ctx.strokeStyle = "green"; 
-                is_valid = 1
+                is_valid = true
                 // ctx.rect(start[0], start[1], size[0], size[1]);
         
                 
             } else {
                 ctx.strokeStyle = "red"; 
-                is_valid = 0 
+                is_valid = false
             }
             
 
         } else {
             ctx.strokeStyle = "red"; 
-            is_valid = 0 
+            is_valid = false
         }
         
         // ctx.beginPath();
         ctx.lineWidth = 6
         ctx.rect(topLef_box[0], topLef_box[1], size_box[0],size_box[1]);
-        ctx.stroke(); 
-
-        postMessage({ "is_valid" : is_valid})
-        
-        
+        ctx.stroke();         
     }
+
+
+    postMessage({ "valid" : is_valid,})
 }
 
 onmessage = function (event) {

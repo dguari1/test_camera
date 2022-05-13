@@ -110,3 +110,9 @@ progress[value]::-moz-progress-bar {
   position: relative;
   transition: width 1s linear;
 }
+
+.controls {
+  text-align: center;
+  padding: 0.5em 0;
+  /* background: #333e5a; */
+}

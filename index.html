@@ -2,25 +2,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="style.css">
+<style>
+    .button {
+  background-image: linear-gradient(-180deg, #37AEE2 0%, #002a5c 100%);
+  border-radius: .5rem;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-size: 16px;
+  justify-content: center;
+  padding: 1rem 1.75rem;
+  text-decoration: none;
+  width: 25%;
+  border: 0;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button:hover {
+  background-image: linear-gradient(-180deg, #1D95C9 0%, #010f20 100%);
+}
+
+@media (min-width: 768px) {
+  .button {
+    padding: 1rem 2rem;
+  }
+}
+</style>
 </head>
 
 <body>
 
     <div class="container">
-        <figure>
-            <!-- <video controls id="video" src="https://assets.codepen.io/9632/SampleVideo_1280x720_1mb.mp4"></video> -->
-            <video autoplay="true" id="video"></video>
-            <canvas id="canvas"></canvas>
-            <figcaption>
-              <label id="timer" for="progress" role="timer"></label>
-              <button id="play" aria-label="Play" role="button">►</button>
-              <progress id="progress" max="100" value="0">Progress</progress>
-              </figcaption>
-          </figure>
+        <center> 
+            <h1>Video Test</h1>
+            <p>Welcome  to the <b>Test</b>
+            </p>
+        <button class="button" role="button" onClick="location.href='video_test.html'">Click Here to Start</button>
+        </center>
     </div> 
 </body>
-
-<script type = "module" src="code4.js"></script>
 
 </html>
